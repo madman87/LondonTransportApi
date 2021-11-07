@@ -14,9 +14,9 @@ if (callapiBtn) {callapiBtn.addEventListener('click', async (e) => {
 
     let arr = [];
 
-    for (var i in myJson) {
-        var key = i;
-        var val = myJson[i];
+    for (let i in myJson) {
+        let key = i;
+        let val = myJson[i];
         const date = myJson[i].expectedArrival.substring(0,10),
               time = myJson[i].expectedArrival.substring(11,19);
 
@@ -26,7 +26,7 @@ if (callapiBtn) {callapiBtn.addEventListener('click', async (e) => {
     databox.innerHTML = arr.join(' ');
     
     //SEND CALL API DATA TO BACKEND
-    var data = new FormData(); //FORM DATA SEND
+    const data = new FormData(); //FORM DATA SEND
     data.append("json", JSON.stringify(myJson));
 
     fetch("/getdata",
@@ -36,6 +36,8 @@ if (callapiBtn) {callapiBtn.addEventListener('click', async (e) => {
         })
         .then(function (res) {
             return res.json();
+        }).catch((error) => {
+            console.log(error);
         });
     
 });}
@@ -43,26 +45,26 @@ if (callapiBtn) {callapiBtn.addEventListener('click', async (e) => {
 const deleteBtn = document.querySelectorAll('.list-group-item'),
       heading = document.querySelector('.heading');
 
-for (let i = 0; i < deleteBtn.length; i++) {
+deleteBtn.forEach(item => {
     heading.innerHTML=(`<h3> ${deleteBtn.length} Entries Found </h3>`);
-    deleteBtn[i].addEventListener("click", (e) => {
+    item.addEventListener("click", (e) => {
         if (e.target.matches('.img')) {
-        const startIndex=deleteBtn[i].innerHTML.indexOf("('"),
-              endIndex=deleteBtn[i].innerHTML.indexOf("),"),
-              objectNum=deleteBtn[i].innerHTML.substring(startIndex+2,endIndex-1);
+            const startIndex = item.innerHTML.indexOf("('"),
+                  endIndex = item.innerHTML.indexOf("),"),
+                  objectNum = item.innerHTML.substring(startIndex + 2, endIndex - 1);
 
-        //SEND CALL API ELEMENT ID NUMBER TO BACKEND TO DELETE FROM DB        
-        fetch("/delelement/"+JSON.stringify(objectNum),
-            {
-                method: "POST",
-            })
-            .then(function (res) {
-                return res.json();
-            });
-            
-        deleteBtn[i].style.display="none";
+            //SEND CALL API ELEMENT ID NUMBER TO BACKEND TO DELETE FROM DB        
+            fetch("/delelement/" + JSON.stringify(objectNum),
+                {
+                    method: "POST",
+                })
+                .then(function (res) {
+                    return res.json();
+                }).catch((error) => {
+                    console.log(error);
+                });
+
+            item.style.display = "none";
         }
     });
-}
-
-
+});
