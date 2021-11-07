@@ -1,0 +1,42 @@
+<html>
+    <head>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- font awesome from BootstrapCDN -->
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+        <link href="/static/app.css" rel="stylesheet">
+    </head>
+    <body class="history">
+        <div class="container">
+            <div class="login-page clearfix">
+              <div class="login-box auth0-box before">
+
+                <h3>API CALLS HISTORY PAGE</h3>
+                <p></p>
+                <a id="qsLoginBtn" class="btn btn-primary btn-lg btn-login btn-block" href="/">GO BACK</a>
+                
+                <form method="post" action="/history">
+                    <p>
+                      <input type="submit" name="submit_button" value="Show API Calls History">
+                      <input type="text" class="submit" name="searchDbKey" value="VehickleID">
+                      <input type="text" class="submit" name="searchDbValue" placeholder="VehicleID No">
+                      <input type = "submit" class="submit" name='submitBtn' value = "search" />
+                    </p>
+                </form>
+              </div>
+            </div>
+        </div>
+        <ul class="list-group">
+          {%for i in data%}
+          <li class="list-group-item">
+              <img alt="bin" class='img' src="static/delete.png" style="float:right;width:40px;height:40px;" >
+            </a>{{i}}
+          </li>
+          {%endfor%}
+        </ul>
+        <script src="static/script.js"></script>
+    </body>
+</html>
