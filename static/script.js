@@ -40,11 +40,13 @@ if (callapiBtn) {callapiBtn.addEventListener('click', async (e) => {
     
 });}
 
-const deleteBtn = document.querySelectorAll('.list-group-item');
+const deleteBtn = document.querySelectorAll('.list-group-item'),
+      heading = document.querySelector('.heading');
+
 for (let i = 0; i < deleteBtn.length; i++) {
+    heading.innerHTML=(`<h3> ${deleteBtn.length} Entries Found </h3>`);
     deleteBtn[i].addEventListener("click", (e) => {
         if (e.target.matches('.img')) {
-
         const startIndex=deleteBtn[i].innerHTML.indexOf("('"),
               endIndex=deleteBtn[i].innerHTML.indexOf("),"),
               objectNum=deleteBtn[i].innerHTML.substring(startIndex+2,endIndex-1);
@@ -57,7 +59,7 @@ for (let i = 0; i < deleteBtn.length; i++) {
             .then(function (res) {
                 return res.json();
             });
-        
+            
         deleteBtn[i].style.display="none";
         }
     });

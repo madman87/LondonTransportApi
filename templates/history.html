@@ -1,5 +1,7 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
+      <meta charset="utf-8"/>
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -14,17 +16,18 @@
             <div class="login-page clearfix">
               <div class="login-box auth0-box before">
 
-                <h3>API CALLS HISTORY PAGE</h3>
-                <p></p>
+                <h3 class='heading'>API CALLS HISTORY PAGE</h3>
                 <a id="qsLoginBtn" class="btn btn-primary btn-lg btn-login btn-block" href="/">GO BACK</a>
-                
+                <div class="buttons">
                 <form method="post" action="/history">
                     <p>
-                      <input type="submit" name="submit_button" value="Show API Calls History">
-                      <input type="text" class="submit" name="searchDbKey" value="VehickleID">
+                      <input type="submit" class="apiBtn" name="submit_button" value="Show API Calls History">
+                      <input type="text" class="submit" name="searchDbKey" placeholder="VehickleID">
                       <input type="text" class="submit" name="searchDbValue" placeholder="VehicleID No">
-                      <input type = "submit" class="submit" name='submitBtn' value = "search" />
+                      <input type = "submit" class="submit" name='submitBtn' value = "search">
+                      <input type = "submit" class="deleteAll" name='deleteAll' value = "Delete ALL History">
                     </p>
+                  </div>
                 </form>
               </div>
             </div>
