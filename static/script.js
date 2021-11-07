@@ -49,9 +49,7 @@ deleteBtn.forEach(item => {
     heading.innerHTML=(`<h3> ${deleteBtn.length} Entries Found </h3>`);
     item.addEventListener("click", (e) => {
         if (e.target.matches('.img')) {
-            const startIndex = item.innerHTML.indexOf("('"),
-                  endIndex = item.innerHTML.indexOf("),"),
-                  objectNum = item.innerHTML.substring(startIndex + 2, endIndex - 1);
+            let objectNum = item.dataset.objectid;
 
             //SEND CALL API ELEMENT ID NUMBER TO BACKEND TO DELETE FROM DB        
             fetch("/delelement/" + JSON.stringify(objectNum),

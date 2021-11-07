@@ -34,7 +34,7 @@
         </div>
         <ul class="list-group">
           {%for i in data%}
-          <li class="list-group-item" data-objectid="{{i}}">
+          <li class="list-group-item" data-objectid="{{i['_id']}}">
               <img alt="bin" class='img' src="static/delete.png" style="float:right;width:40px;height:40px;" >
             </a>{{i}}
           </li>
