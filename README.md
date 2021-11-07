@@ -14,6 +14,7 @@ pip3 install -r requirements.txt
 
 ```bash
 In terminal enter  python3 <PATH TO> app.py
+In your Browser go to http://localhost:5000
 ```
 
 #### FIRST PAGE PROVIDES OPTION TO MAKE A CALL TO TRANSPORT API AND IN SAME TIME DATA BEING STORED IN MONGO DB ATLAS CLOUD.
