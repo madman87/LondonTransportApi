@@ -10,10 +10,10 @@ Use the package manager [pip3](https://pip.pypa.io/en/stable/) to install requir
 pip3 install -r requirements.txt
 ```
 
-## Usage
+## Start APP
 
 ```bash
-From terminal use : python3 <PATH TO> app.py
+From terminal type : python3 <PATH TO> app.py
 ```
 
 #### FIRST PAGE PROVIDES OPTION TO MAKE A CALL TO TRANSPORT API AND IN SAME TIME DATA BEING STORED IN MONGO DB ATLAS CLOUD.
