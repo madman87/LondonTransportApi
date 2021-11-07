@@ -13,7 +13,7 @@ pip3 install -r requirements.txt
 ## Start APP
 
 ```bash
-From terminal type : python3 <PATH TO> app.py
+In terminal enter  python3 <PATH TO> app.py
 ```
 
 #### FIRST PAGE PROVIDES OPTION TO MAKE A CALL TO TRANSPORT API AND IN SAME TIME DATA BEING STORED IN MONGO DB ATLAS CLOUD.
