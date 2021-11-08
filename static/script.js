@@ -1,29 +1,28 @@
 "use strict";
 
-
 const callapiBtn = document.getElementById('callapi'),
-      databox = document.querySelector('.myBox');
-      
+      result = document.getElementById("result").querySelector("tbody");
 
 if (callapiBtn) {callapiBtn.addEventListener('click', async (e) => {
-
+    
     const response = await fetch('https://api.tfl.gov.uk/StopPoint/490009333W/arrivals');
     const myJson = await response.json(); //extract JSON from the http response
 
-    console.log(Object.keys(myJson));
+    // console.log(Object.keys(myJson));
+    result.innerHTML = "<tr><td colspan='5'>LOADING</td></tr>";
 
-    let arr = [];
-
-    for (let i in myJson) {
-        let key = i;
-        let val = myJson[i];
-        const date = myJson[i].expectedArrival.substring(0,10),
-              time = myJson[i].expectedArrival.substring(11,19);
-
-        arr.push(`Transport No ${myJson[i].vehicleId} towards ${myJson[i].towards} expected to arrive at ${time} ${date} <br/>`);
+    let trarray = "";
+    for (let i = 0; i < myJson.length; i++) {
+        let r = myJson[i];
+        console.log(myJson[i]);
+        let time = myJson[i].expectedArrival;
+        let destination = myJson[i].destinationName;
+        let station = myJson[i].stationName;
+        let vehicle = myJson[i].vehicleId;
+        let tr = createTr(vehicle,time, station, destination);
+        trarray += tr;
     }
-
-    databox.innerHTML = arr.join(' ');
+    result.innerHTML = trarray;
     
     //SEND CALL API DATA TO BACKEND
     const data = new FormData(); //FORM DATA SEND
@@ -41,6 +40,10 @@ if (callapiBtn) {callapiBtn.addEventListener('click', async (e) => {
         });
     
 });}
+
+function createTr(v, t, s, d) {
+    return "<tr><td>" + v + "</td><td>" + t + "</td><td>" + s + "</td><td>" + d + "</td></tr>";
+}
 
 const deleteBtn = document.querySelectorAll('.row_entry'),
       heading = document.querySelector('.heading');

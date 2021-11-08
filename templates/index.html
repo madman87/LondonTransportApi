@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-      <meta charset="utf-8"/>
+<head>
+  <meta charset="utf-8" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -14,19 +14,39 @@
 </head>
 
 <body class="home">
-  <div id='div' class="container">
-    <div class="login-page clearfix">
-      <div class="login-box auth0-box before">
+  <header>
+    <div id='div' class="container">
+      <div class="login-page clearfix">
+        <div class="login-box auth0-box before">
 
-        <h3>GET LONDON TRANSPORT BUS ARRIVAL TIMES</h3>
-        <form action="/" method="post">
-          <a id="callapi" class="btn btn-primary btn-lg btn-login btn-block">CALL
-            API</a>
-          <a id="historyBtn" class="btn btn-primary btn-lg btn-login btn-block" href="/history">CALLS HISTORY</a>
-        </form>
-        <div class="myBox"></div>
-      </div>
+          <h3>GET LONDON TRANSPORT BUS ARRIVAL TIMES</h3>
+          <form action="/" method="post">
+            <a id="callapi" class="btn btn-primary btn-lg btn-login btn-block">CALL
+              API</a>
+            <a id="callshistory" class="btn btn-primary btn-lg btn-login btn-block" href="/history">CALLS HISTORY</a>
+          </form>
+  </header>
+  <main>
+    <div id="result">
+      <table>
+        <thead>
+          <tr>
+            <th>VehickleID</th>
+            <th>Excpected Arrival</th>
+            <th>Station Name</th>
+            <th>Destination</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan='5'> <strong>Click Call API</strong></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+  </main>
+  </div>
   </div>
   <script src="static/script.js"></script>
 </body>
