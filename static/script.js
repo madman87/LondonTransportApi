@@ -42,7 +42,7 @@ if (callapiBtn) {callapiBtn.addEventListener('click', async (e) => {
     
 });}
 
-const deleteBtn = document.querySelectorAll('.list-group-item'),
+const deleteBtn = document.querySelectorAll('.row_entry'),
       heading = document.querySelector('.heading');
 
 deleteBtn.forEach(item => {
