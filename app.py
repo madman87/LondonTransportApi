@@ -31,11 +31,11 @@ def history():
             data=mongo.db.bramfitt.find()
             return render_template('history.html' , data=data)
 
-        #GETTING QUERY SEARCH BY VALUE
+        #GETTING QUERY SEARCH BY KEY AND VALUE
         if request.form.get('submitBtn') == 'search':
-            textValue=request.form['searchDbValue']
-            textKey=request.form['searchDbKey']
-            data = mongo.db.bramfitt.find({textKey:textValue})
+            value=request.form['searchDbValue']
+            key=request.form['searchDbKey']
+            data = mongo.db.bramfitt.find({key:value})
             return render_template('history.html',data=data)
 
         #DELETE ALL API CALLS HISTORY

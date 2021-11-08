@@ -57,12 +57,14 @@ deleteBtn.forEach(item => {
                     method: "POST",
                 })
                 .then(function (res) {
+                    if (res.status == 200){
+                        let row =e.target.parentElement.parentElement;
+                        row.remove();
+                    }
                     return res.json();
                 }).catch((error) => {
                     console.log(error);
-                });
-
-            item.style.display = "none";
+                });      
         }
     });
 });
